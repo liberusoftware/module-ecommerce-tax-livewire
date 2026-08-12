@@ -126,7 +126,19 @@ it('computes no figure in floating point', function (string $construct) {
 ]);
 
 it('renders no rate, jurisdiction or registration column in its markup', function (string $column) {
-    $view = (string) file_get_contents(dirname(__DIR__, 2).'/resources/views/breakdown.blade.php');
+    // Comments stripped for the same reason the PHP source is: the comment at
+    // the top of that view names what it deliberately leaves out, and a naive
+    // grep would read the explanation as the offence.
+    //
+    // The form field a shopper types their own number into is called
+    // `registration_number` and is not on this list. It is an input, not a
+    // disclosure — what must never appear is the *seller's*, and
+    // `tests/Feature/DisclosureTest.php` asserts that against real markup.
+    $view = (string) preg_replace(
+        '/\{\{--.*?--\}\}/s',
+        '',
+        (string) file_get_contents(dirname(__DIR__, 2).'/resources/views/breakdown.blade.php'),
+    );
 
     expect($view)->not->toContain($column);
 })->with([
@@ -135,8 +147,9 @@ it('renders no rate, jurisdiction or registration column in its markup', functio
     'rate_version',
     'no_tax_reason',
     'treatment',
-    'registration_number',
+    'claimed_registration_number',
     'validation_authority',
+    'validation_response',
 ]);
 
 it('holds the domain package in both require and require-dev', function () {
