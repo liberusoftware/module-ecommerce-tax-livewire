@@ -1,0 +1,21 @@
+{
+    "name": "ecommerce-tax-livewire",
+    "version": "0.1.0",
+    "category": "presentation",
+    "provider": "Liberu\\Ecommerce\\Tax\\Livewire\\TaxLivewireServiceProvider",
+    "description": "The shopper-facing Livewire surface for tax: a breakdown of what was charged, and an exemption claim that fails closed.",
+    "features": [
+        "A tax breakdown rendered from a quote, in the settled money envelope",
+        "An exemption claim that refuses and charges tax when validation fails",
+        "Loading, empty, unauthorised and failure states for every action",
+        "Expiry and supersession rendered as their own states, never recalculated",
+        "No rate, jurisdiction or registration footprint is ever disclosed to a shopper",
+        "One idempotency key per claim, minted when the step is entered",
+        "Every public property locked, so nothing on the surface is a client input"
+    ],
+    "requires": {
+        "packages": {
+            "liberusoftware/ecommerce-tax": "^0.1.0"
+        }
+    }
+}

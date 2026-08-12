@@ -1,0 +1,48 @@
+{
+    "name": "liberusoftware/ecommerce-tax-livewire",
+    "description": "The shopper-facing Livewire surface for tax: a breakdown of what was charged, and an exemption claim that fails closed.",
+    "type": "liberu-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {
+        "php": "^8.5",
+        "illuminate/contracts": "^13.0",
+        "illuminate/support": "^13.0",
+        "illuminate/view": "^13.0",
+        "liberusoftware/ecommerce-tax": "^0.1.0",
+        "livewire/livewire": "^4.0"
+    },
+    "require-dev": {
+        "liberusoftware/ecommerce-tax": "^0.1.0",
+        "liberusoftware/package-testbench": "^1.7",
+        "pestphp/pest": "^5.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/liberusoftware/module-ecommerce-tax"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Liberu\\Ecommerce\\Tax\\Livewire\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Liberu\\Ecommerce\\Tax\\Livewire\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "liberu": {
+            "name": "ecommerce-tax-livewire"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
